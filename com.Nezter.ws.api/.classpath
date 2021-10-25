@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/com.Nezter.Objects"/>
+	<classpathentry kind="lib" path="C:/Users/plutarco/eclipse-workspace/com.Nezter.ws.api/jars/axis.jar"/>
+	<classpathentry kind="lib" path="C:/Users/plutarco/eclipse-workspace/com.Nezter.ws.api/jars/commons-discovery-0.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/plutarco/eclipse-workspace/com.Nezter.ws.api/jars/javax.wsdl_1.6.2.v201012040545.jar"/>
+	<classpathentry kind="lib" path="C:/Users/plutarco/eclipse-workspace/com.Nezter.ws.api/jars/jaxrpc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/plutarco/eclipse-workspace/com.Nezter.ws.api/jars/mssql-jdbc-9.4.0.jre8.jar"/>
+	<classpathentry kind="lib" path="C:/Users/plutarco/eclipse-workspace/com.Nezter.ws.api/jars/org.apache.commons.logging_1.2.0.v20180409-1502.jar"/>
+	<classpathentry kind="lib" path="C:/Users/plutarco/eclipse-workspace/com.Nezter.ws.api/jars/saaj.jar"/>
+	<classpathentry kind="lib" path="C:/Users/plutarco/eclipse-workspace/com.Nezter.ws.api/jars/sun-security-jaas.jar"/>
+	<classpathentry kind="lib" path="C:/Users/plutarco/eclipse-workspace/com.Nezter.ws.api/jars/httpserver-1.0.0.final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/plutarco/eclipse-workspace/com.Nezter.ws.api/jars/http-2.2.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/plutarco/eclipse-workspace/com.Nezter.ws.api/jars/http-server-0.61-sources.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
+		<accessrules>
+			<accessrule kind="accessible" pattern="com/sun/net/httpserver/**"/>
+			<accessrule kind="accessible" pattern="com.ibm.websphere"/>
+		</accessrules>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/plutarco/eclipse-workspace/com.Nezter.ws.api/jars/javax.servlet.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

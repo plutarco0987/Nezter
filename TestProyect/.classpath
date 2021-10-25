@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/com.Nezter.Objects"/>
+	<classpathentry kind="lib" path="C:/Users/plutarco/Downloads/sun-security-jaas.jar/sun-security-jaas.jar"/>
+	<classpathentry kind="lib" path="C:/Users/plutarco/Downloads/sqljdbc_9.4.0.0_enu (1)/sqljdbc_9.4/enu/mssql-jdbc-9.4.0.jre8.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
