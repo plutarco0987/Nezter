@@ -1,0 +1,13 @@
+package com.Nezter.ws.app;
+
+import com.Nezter.Objects.User;
+
+import javax.jws.WebMethod;
+import javax.jws.WebService;
+
+@WebService
+public interface UserService {
+
+	@WebMethod
+	User getUserById(int idUser);
+}

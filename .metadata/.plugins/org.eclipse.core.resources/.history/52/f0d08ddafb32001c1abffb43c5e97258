@@ -1,0 +1,46 @@
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.Nezter.Objects.User;
+
+
+public class MainClass {
+
+
+	
+	public static void main(String[] args) throws SQLException, ClassNotFoundException {
+		
+		Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+        Connection con = DriverManager.getConnection("jdbc:sqlserver://localhost; DatabaseName=NezterExam; user=userExamen; password=Examen2021;encrypt=false;sslProtocol=TLSv1.2;");
+        System.out.print("paso");
+        String stringConn = "SELECT * FROM [dbo].[User]";        
+        
+        Statement st = con.createStatement();        
+        ResultSet rs = st.executeQuery(stringConn);
+		List<User> listUser= new ArrayList<User>();
+        while (rs.next()) {        	
+        	  int ID = rs.getInt("ID");
+        	  String Name = rs.getString("Name");
+        	  String Address = rs.getString("Address");
+        	  int CellPhone = rs.getInt("CellPhone");
+        	  int ZipCode = rs.getInt("ZipCode");
+        	  //Assuming you have a user object
+        	  User user = new User(ID,Name,Address,CellPhone,ZipCode);
+
+        	  listUser.add(user);
+        }
+        
+        for (User user : listUser) {
+        	System.out.println(user.getName());
+		}
+        
+        
+
+	}
+
+}

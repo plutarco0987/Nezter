@@ -1,0 +1,30 @@
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.Nezter.Objects.User;
+import com.microsoft.sqlserver.jdbc.SQLServerDataSource;
+
+
+public class MainClass {
+
+
+	
+	public static void main(String[] args) throws SQLException, ClassNotFoundException {
+		
+		SQLServerDataSource sqlDs = new SQLServerDataSource();
+		sqlDs.setIntegratedSecurity(false);
+		sqlDs.setUser("sa");
+		sqlDs.setPassword("sa");		                    
+		sqlDs.setServerName("localhost");
+		sqlDs.setPortNumber(1433); 
+		sqlDs.setDatabaseName("TestDB");
+		Connection dbConn = sqlDs.getConnection();
+		System.out.println("conexxion exitosa");
+	}
+
+}

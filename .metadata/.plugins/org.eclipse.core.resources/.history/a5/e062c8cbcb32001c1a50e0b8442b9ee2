@@ -1,0 +1,60 @@
+package com.Nezter.ws.api.app;
+
+public class UserServiceProxy implements com.Nezter.ws.api.app.UserService {
+  private String _endpoint = null;
+  private com.Nezter.ws.api.app.UserService userService = null;
+  
+  public UserServiceProxy() {
+    _initUserServiceProxy();
+  }
+  
+  public UserServiceProxy(String endpoint) {
+    _endpoint = endpoint;
+    _initUserServiceProxy();
+  }
+  
+  private void _initUserServiceProxy() {
+    try {
+      userService = (new com.Nezter.ws.api.app.UserServiceImpServiceLocator()).getUserServiceImpPort();
+      if (userService != null) {
+        if (_endpoint != null)
+          ((javax.xml.rpc.Stub)userService)._setProperty("javax.xml.rpc.service.endpoint.address", _endpoint);
+        else
+          _endpoint = (String)((javax.xml.rpc.Stub)userService)._getProperty("javax.xml.rpc.service.endpoint.address");
+      }
+      
+    }
+    catch (javax.xml.rpc.ServiceException serviceException) {}
+  }
+  
+  public String getEndpoint() {
+    return _endpoint;
+  }
+  
+  public void setEndpoint(String endpoint) {
+    _endpoint = endpoint;
+    if (userService != null)
+      ((javax.xml.rpc.Stub)userService)._setProperty("javax.xml.rpc.service.endpoint.address", _endpoint);
+    
+  }
+  
+  public com.Nezter.ws.api.app.UserService getUserService() {
+    if (userService == null)
+      _initUserServiceProxy();
+    return userService;
+  }
+  
+  public com.Nezter.ws.api.app.User getUserById(int arg0) throws java.rmi.RemoteException, com.Nezter.ws.api.app.Exception{
+    if (userService == null)
+      _initUserServiceProxy();
+    return userService.getUserById(arg0);
+  }
+  
+  public com.Nezter.ws.api.app.User[] getAll() throws java.rmi.RemoteException, com.Nezter.ws.api.app.Exception{
+    if (userService == null)
+      _initUserServiceProxy();
+    return userService.getAll();
+  }
+  
+  
+}

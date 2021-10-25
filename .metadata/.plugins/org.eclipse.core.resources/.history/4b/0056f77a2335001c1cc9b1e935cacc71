@@ -1,0 +1,21 @@
+package com.Nezter.ws.api.app;
+
+import java.io.IOException;
+import java.net.InetSocketAddress;
+
+import javax.xml.ws.Endpoint;
+import javax.xml.ws.spi.http.HttpContext;
+import javax.xml.ws.spi.http.HttpExchange;
+import javax.xml.ws.spi.http.HttpHandler;
+
+import org.jboss.com.sun.net.httpserver.HttpServer;
+
+public class Main {
+	
+	public static void main(String[] args) {		
+			        
+		
+		Endpoint.publish("http://localhost:8900/api/UserWebService", new UserServiceImp());		
+	}
+
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move package &apos;com.Nezter.ws.app&apos; to &apos;com.Nezter.ws.api/src&apos;&#x0D;&#x0A;- Original project: &apos;ws-nezter&apos;&#x0D;&#x0A;- Destination element: &apos;com.Nezter.ws.api/src&apos;&#x0D;&#x0A;- Original element: &apos;ws-nezter/src/main/java/com.Nezter.ws.app&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move package" destination="=com.Nezter.ws.api/src" element1="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.Nezter.ws.app" flags="589830" fragments="1" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.movePackages" stamp="1634792157438" version="1.0"/>
+</session>

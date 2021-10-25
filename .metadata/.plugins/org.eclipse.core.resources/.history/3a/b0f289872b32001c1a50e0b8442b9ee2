@@ -1,0 +1,17 @@
+package com.Nezter.ws.api.app;
+
+import com.Nezter.Objects.User;
+
+import javax.jws.WebMethod;
+import javax.jws.WebService;
+
+@WebService(endpointInterface = "com.Nezter.ws.app.UserService")
+public class UserServiceImp implements UserService{
+
+	@WebMethod
+	public User getUserById(int idUser) {
+		User user= new User("test","address",12345,54321);
+		return user;
+	}
+
+}

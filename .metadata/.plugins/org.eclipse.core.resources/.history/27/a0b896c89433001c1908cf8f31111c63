@@ -1,0 +1,74 @@
+package com.Nezter.ws.api.app;
+import java.util.ArrayList;
+import java.util.List;
+import java.sql.*;
+import javax.jws.WebMethod;
+import javax.jws.WebService;
+
+import com.Nezter.Objects.User;
+
+@WebService(endpointInterface = "com.Nezter.ws.api.app.UserService")
+public class UserServiceImp implements UserService{
+
+	@WebMethod
+	public User getUserById(int idUser) throws Exception{
+		//User user= new User(1,"test","address",12345,54321);
+		return null;
+	}
+
+	@Override
+	public List<User> getAll() throws Exception{
+		
+		Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+        Connection con = DriverManager.getConnection("jdbc:sqlserver://PLUTARCO\\SQLEXPRESS:1433;databaseName=NezterExam;user=userExamen;password=Examen2021");       
+        String stringConn = "SELECT * FROM [dbo].[User]";        
+        
+        Statement st = con.createStatement();        
+        ResultSet rs = st.executeQuery(stringConn);
+		List<User> listUser= new ArrayList<User>();
+        while (rs.next()) {
+        	  int ID = rs.getInt("ID");
+        	  String Name = rs.getString("Name");
+        	  String Address = rs.getString("Address");
+        	  int CellPhone = rs.getInt("CellPhone");
+        	  int ZipCode = rs.getInt("ZipCode");
+        	  //Assuming you have a user object
+        	  User user = new User(ID,Name,Address,CellPhone,ZipCode);
+
+        	  listUser.add(user);
+        }
+        return listUser;
+        
+        
+	}
+
+	@Override
+	public Boolean updateUser(User user) throws Exception {
+		String SPsql = "EXEC wsp_UploadUser ?,?,?,?,?"; 
+		Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+		Connection con = DriverManager.getConnection("jdbc:sqlserver://PLUTARCO\\SQLEXPRESS:1433;databaseName=NezterExam;user=userExamen;password=Examen2021");       
+
+			
+		PreparedStatement ps = con.prepareStatement(SPsql);
+		ps.setEscapeProcessing(true);
+		ps.setQueryTimeout(3000);
+		ps.setString(1,user.getName());
+		ps.setString(2,user.getAddress());
+		ps.setInt(3,user.getCellPhone());
+		ps.setInt(4,user.getZipCode());
+		ps.setInt(5,user.getZipCode());
+		ResultSet rs = ps.executeQuery();
+		
+		if(rs!=null) {
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public Boolean deleteUser(int userId) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

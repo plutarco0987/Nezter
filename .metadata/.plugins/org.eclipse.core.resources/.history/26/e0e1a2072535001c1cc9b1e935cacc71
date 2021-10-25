@@ -1,0 +1,32 @@
+package com.Nezter.ws.api.app;
+
+import java.io.IOException;
+import java.net.InetSocketAddress;
+
+import javax.xml.ws.Endpoint;
+
+import org.jboss.com.sun.net.httpserver.HttpContext;
+import org.jboss.com.sun.net.httpserver.HttpHandler;
+import org.jboss.com.sun.net.httpserver.HttpServer;
+
+public class Main {
+	
+	public static void main(String[] args) throws IOException {		
+		
+		Endpoint endpoint = Endpoint.create(new UserServiceImp());
+        HttpServer httpServer = HttpServer.create(new InetSocketAddress(11080), 0);
+        HttpHandler handler = new HttpHandler() {
+			
+			@Override
+			public void handle(org.jboss.com.sun.net.httpserver.HttpExchange arg0) throws IOException {
+				arg0.getRequestHeaders().add("Access-Control-Allow-Origin", "*");				
+			}
+		};      
+        HttpContext context = httpServer.createContext("/server",handler);
+        httpServer.start();
+        endpoint.publish(context);
+        		
+		Endpoint.publish("http://localhost:8900/api/UserWebService", new UserServiceImp());		
+	}
+
+}

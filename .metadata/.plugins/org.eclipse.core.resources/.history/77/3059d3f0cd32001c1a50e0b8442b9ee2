@@ -1,0 +1,17 @@
+/**
+ * UserService.java
+ *
+ * This file was auto-generated from WSDL
+ * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
+ */
+
+package com.Nezter.ws.api.app;
+
+import java.util.List;
+
+import com.Nezter.Objects.User;
+
+public interface UserService{
+    public User getUserById(int arg0)  throws Exception;
+    public List<User> getAll()  throws Exception;
+}
